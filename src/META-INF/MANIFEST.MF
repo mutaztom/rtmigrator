@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: com.rationalteam.migrator.Main
+Include-Resource: true
+SplashScreen-Image: resources/splash.gif
