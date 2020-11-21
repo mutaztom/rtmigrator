@@ -48,7 +48,7 @@ public class Migrator extends Thread {
         logMessage("Rational Team Technology.");
         logMessage("Rational Conveyor Version 1.0. ");
         logMessage("Developed by Rational Team for Traffic Police, All rights reserved 20018@");
-        logMessage("Press Control+C to  stop this application.");
+        logMessage("يتم تشغيل خدمة مراقبة الصور الجديدة......");
 
         Path src = Paths.get(source);
         Path dest = Paths.get(target);
@@ -72,7 +72,7 @@ public class Migrator extends Thread {
                     try {
                         if (watcher != null)
                             key = watcher.take();
-                    } catch (InterruptedException var11) {
+                    } catch (InterruptedException | ClosedWatchServiceException var11) {
                         break;
                     }
 
@@ -157,8 +157,10 @@ public class Migrator extends Thread {
     @Override
     public void interrupt() {
         try {
-            if (watcher != null)
+            logMessage("تم إنهاء خدمة مراقبة الملفات ....");
+            if (watcher != null) {
                 watcher.close();
+            }
         } catch (IOException e) {
             logMessage(e.getMessage());
         }

@@ -4,8 +4,12 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.DirectoryChooser;
 
+import javax.management.timer.Timer;
+import java.awt.event.ActionListener;
 import java.io.*;
 import java.net.URL;
 import java.nio.file.Paths;
@@ -26,6 +30,7 @@ public class Controller implements Initializable {
     public Button cmdtarget;
     public Button cmdsource;
     public TextArea txtoutput;
+    public Circle indicator;
     private Migrator migrator;
     private Thread migratorThread;
 
@@ -70,20 +75,33 @@ public class Controller implements Initializable {
             migrator.setOnMessage(msg -> Platform.runLater(() -> txtoutput.appendText(msg)));
             migrator.setOnCreate(path ->
                     Platform.runLater(() -> txtoutput.appendText(path.toString())));
-            migratorThread = new Thread(migrator::startMigrator);
+            migratorThread = new Thread() {
+                @Override
+                public void run() {
+                    migrator.startMigrator();
+                }
+
+                @Override
+                public void interrupt() {
+                    migrator.interrupt();
+                }
+            };
             migratorThread.setDaemon(true);
             migratorThread.start();
-            if (migratorThread.isAlive())
-            {
+            if (migratorThread.isAlive()) {
                 cmdstop.setDisable(false);
                 cmdstart.setDisable(true);
+                indicator.setFill(Color.GREEN);
             }
         }
     }
 
     public void onStopService(ActionEvent e) {
-        txtoutput.setText("Stopping migration services");
-        migratorThread.interrupt();
+        if (migratorThread.isAlive()) {
+            migrator.interrupt();
+            migratorThread.interrupt();
+            indicator.setFill(Color.GRAY);
+        }
         cmdstop.setDisable(true);
         cmdstart.setDisable(false);
     }
@@ -126,4 +144,5 @@ public class Controller implements Initializable {
         txtsource.setText(migrator.getSource());
         txttarget.setText(migrator.getTarget());
     }
+
 }

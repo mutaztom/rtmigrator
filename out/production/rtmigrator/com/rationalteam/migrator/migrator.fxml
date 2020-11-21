@@ -4,6 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <GridPane hgap="10.0" style="-fx-border-width: 0.1; -fx-border-color: white;" vgap="5.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rationalteam.migrator.Controller">
@@ -55,19 +56,50 @@
                <font>
                   <Font name="MO_Nawel" size="18.0" />
                </font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
             </Button>
-            <Button fx:id="cmdstop" mnemonicParsing="false" onAction="#onStopService" prefHeight="25.0" prefWidth="118.0" text="إيقاف الخدمة">
+            <Button fx:id="cmdstop" disable="true" mnemonicParsing="false" onAction="#onStopService" prefHeight="25.0" prefWidth="118.0" text="إيقاف الخدمة">
                <HBox.margin>
                   <Insets right="3.0" />
                </HBox.margin>
                <font>
                   <Font name="MO_Nawel" size="18.0" />
                </font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
             </Button>
             <Button fx:id="cmdstart" mnemonicParsing="false" onAction="#onStartService" prefHeight="25.0" prefWidth="136.0" text="تشغيل الخدمة">
                <font>
                   <Font name="MO_Nawel" size="18.0" />
-               </font></Button>
+               </font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
+            <Circle fx:id="indicator" fill="#574504" radius="10.0" stroke="BLACK" strokeType="INSIDE" HBox.hgrow="ALWAYS" />
          </children>
          <GridPane.margin>
             <Insets />
