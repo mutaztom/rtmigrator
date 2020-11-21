@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane hgap="10.0" style="-fx-border-width: 0.1; -fx-border-color: white;" vgap="10.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rationalteam.migrator.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+   </rowConstraints>
+   <children>
+      <Label text="نسخ الصور من المجلد ( في هذا الجهاز)" />
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+         <children>
+            <TextField fx:id="txttarget" minWidth="223.0" prefHeight="25.0" prefWidth="223.0" style="-fx-min-width: 350;">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="cmdtarget" mnemonicParsing="false" onAction="#onTarget" text="..." />
+         </children>
+      </HBox>
+      <Label text="إلى المجلد في السيرفر" GridPane.rowIndex="2" />
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
+         <children>
+            <Button fx:id="cmdexit" mnemonicParsing="false" onAction="#onexit" prefHeight="25.0" prefWidth="110.0" text="إغلاق">
+               <HBox.margin>
+                  <Insets right="3.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="cmdstop" mnemonicParsing="false" onAction="#onStopService" prefHeight="25.0" prefWidth="118.0" text="إيقاف الخدمة">
+               <HBox.margin>
+                  <Insets right="3.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="cmdstart" mnemonicParsing="false" onAction="#onStartService" prefHeight="25.0" prefWidth="136.0" text="تشغيل الخدمة" />
+         </children>
+      </HBox>
+      <HBox prefHeight="40.0" prefWidth="425.0" GridPane.rowIndex="1">
+         <children>
+            <TextField fx:id="txtsource" minWidth="223.0" prefHeight="25.0" prefWidth="223.0" style="-fx-min-width: 350;">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="cmdsource" mnemonicParsing="false" onAction="#onSource" text="..." />
+         </children>
+      </HBox>
+   </children>
+   <effect>
+      <Blend />
+   </effect>
+</GridPane>

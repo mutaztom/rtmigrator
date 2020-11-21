@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane hgap="10.0" style="-fx-border-width: 0.1; -fx-border-color: white;" vgap="5.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rationalteam.migrator.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+   </rowConstraints>
+   <children>
+      <Label text="نسخ الصور من المجلد ( في هذا الجهاز)" textAlignment="RIGHT" GridPane.halignment="RIGHT">
+         <GridPane.margin>
+            <Insets left="5.0" right="10.0" />
+         </GridPane.margin>
+         <font>
+            <Font name="MO_Nawel" size="24.0" />
+         </font></Label>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+         <children>
+            <TextField fx:id="txttarget" minWidth="223.0" prefHeight="25.0" prefWidth="223.0" style="-fx-min-width: 350;">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="cmdtarget" mnemonicParsing="false" onAction="#onTarget" text="..." />
+         </children>
+      </HBox>
+      <Label text="إلى المجلد في السيرفر" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets right="10.0" />
+         </GridPane.margin>
+         <font>
+            <Font name="MO_Nawel" size="24.0" />
+         </font></Label>
+      <HBox layoutX="10.0" prefHeight="150.0" prefWidth="200.0" spacing="5.0" GridPane.rowIndex="8">
+         <children>
+            <Button fx:id="cmdexit" mnemonicParsing="false" onAction="#onexit" prefHeight="25.0" prefWidth="110.0" text="إغلاق">
+               <HBox.margin>
+                  <Insets right="3.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="MO_Nawel" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="cmdstop" mnemonicParsing="false" onAction="#onStopService" prefHeight="25.0" prefWidth="118.0" text="إيقاف الخدمة">
+               <HBox.margin>
+                  <Insets right="3.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="MO_Nawel" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="cmdstart" mnemonicParsing="false" onAction="#onStartService" prefHeight="25.0" prefWidth="136.0" text="تشغيل الخدمة">
+               <font>
+                  <Font name="MO_Nawel" size="18.0" />
+               </font></Button>
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <padding>
+            <Insets bottom="5.0" left="10.0" />
+         </padding>
+      </HBox>
+      <HBox prefHeight="40.0" prefWidth="425.0" GridPane.rowIndex="1">
+         <children>
+            <TextField fx:id="txtsource" minWidth="223.0" prefHeight="25.0" prefWidth="223.0" style="-fx-min-width: 350;">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="cmdsource" mnemonicParsing="false" onAction="#onSource" text="..." />
+         </children>
+      </HBox>
+      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4" GridPane.rowSpan="3">
+         <children>
+            <TextArea fx:id="txtoutput" editable="false" prefHeight="100.0" prefWidth="410.0" style="-fx-background-color: black;" text="شركة راشونال تيم للتقنية المحدودة" />
+         </children>
+      </Pane>
+   </children>
+   <effect>
+      <Blend />
+   </effect>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</GridPane>
