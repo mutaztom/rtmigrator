@@ -91,6 +91,10 @@ public class Controller implements Initializable {
             if (migratorThread.isAlive()) {
                 cmdstop.setDisable(false);
                 cmdstart.setDisable(true);
+                txtsource.setDisable(true);
+                txttarget.setDisable(true);
+                cmdsource.setDisable(true);
+                cmdtarget.setDisable(true);
                 indicator.setFill(Color.GREEN);
             }
         }
@@ -104,6 +108,10 @@ public class Controller implements Initializable {
         }
         cmdstop.setDisable(true);
         cmdstart.setDisable(false);
+        txtsource.setDisable(false);
+        txttarget.setDisable(false);
+        cmdsource.setDisable(false);
+        cmdtarget.setDisable(false);
     }
 
     public void onTarget(ActionEvent e) {
